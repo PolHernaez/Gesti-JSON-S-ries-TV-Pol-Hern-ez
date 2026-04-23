@@ -1,4 +1,5 @@
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -236,8 +237,15 @@ public class main {
         System.out.println("Fet!");
 
         }
-           public void opcio12(){
-    
-
-        }
+        public void opcio12() {
+    try {
+        FileWriter fw = new FileWriter("src/tvs_modificat.json");
+        fw.write(series.toJSONString());
+        fw.flush();
+        fw.close();
+        System.out.println("Fitxer creat!");
+    } catch (IOException e) {
+        System.out.println("ERROR: " + e.getMessage());
+    }
+}
     }
